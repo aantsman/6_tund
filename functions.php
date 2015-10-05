@@ -23,6 +23,8 @@
 			
 			$car->id=$id_from_db;
 			$car->number_plate=$number_plate_from_db;
+			$car->user_id=$user_id_from_db;
+			$car->color=$color_from_db;
 			
 			//lisan auto massiivi
 			array_push($array, $car);
