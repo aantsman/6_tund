@@ -13,6 +13,8 @@
 	//kasutaja muudab andmeid
 	if(isset($_GET["update"])){
 		
+		//auto id, auto nr, auto värv
+		updateCarData($_GET["car_id"], $_GET["number_plate"], $_GET["color"]);
 	}
 	
 	

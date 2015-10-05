@@ -57,6 +57,22 @@
 		$mysqli->close();
 		
 	}
+	
+	function dupdateCarData($car_id, $number_plate, $color){
+		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
+		
+		
+        $stmt = $mysqli->prepare("UPDATE car_plates SET number_plate=?, color=? WHERE id=?");
+        $stmt->bind_param("ssi", $number_plate, $color, $car_id);
+        $stmt->execute();
+		
+		//tühjendame aadressirea
+		//header("Location:table.php");
+		
+		$stmt->close();
+		$mysqli->close();
+		
+	}
     
     
  ?>
