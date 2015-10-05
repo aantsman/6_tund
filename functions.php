@@ -11,37 +11,29 @@
         $stmt->bind_result($id_from_db, $user_id_from_db, $number_plate_from_db, $color_from_db);
         $stmt->execute();
         
-        $row_nr = 0;
+		//massiiv kus hoiame autosid
+		$array=array();
 		
-		echo "<table border=1>";
-		echo "<tr> <th>rea nr</th> <th>auto numbrimärk</th> </tr>";
         // iga rea kohta mis on ab'is teeme midagi
         while($stmt->fetch()){
-            //saime andmed kätte
-            //echo $row_nr." ".$number_plate_from_db." <br>";
+			//suvaline muutuja kus hoiame autoandmeid kuni massiivi lisamiseni
 			
-			//uus rida
-			echo "<tr>";
-			// rea nr tulba
-			echo "<td>".$row_nr."</td>";
-			// auto nr tulba
-			echo "<td>".$number_plate_from_db."</td>";
-			// panete rea kinni
-			echo "</tr>";
+			//tühi objektkus hoiame väärtusi
+			$car=new StdClass();
 			
+			$car->id=$id_from_db;
+			$car->number_plate=$number_plate_from_db;
 			
-			$row_nr++;
+			//lisan auto massiivi
+			array_push($array, $car);
+			/*echo "<pre>";
+			var_dump($array);
+			echo "</pre>";*/
         }
-        echo "</table>";
 		
-		
-        /* iga rea kohta mis on ab'is teeme midagi
-        while($stmt->fetch()){
-            //saime andmed kätte
-            echo($user_id_from_db);
-            //? kuidas saada massiivi - SIIT JÄTKAME
-        }
-		*/
+		//saadan array tagasi
+		return $array;
+
         
         $stmt->close();
         $mysqli->close();
