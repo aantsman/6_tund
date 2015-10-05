@@ -39,8 +39,8 @@
 			echo "<td>".$car_array[$i]->user_id."</td>";
 			echo "<td><input name='number_plate' value=".$car_array[$i]->number_plate."></td>";
 			echo "<td><input name='color' value=".$car_array[$i]->color."></td>";
+			echo "<td><a href='?update=".$car_array[$i]->id."'>Salvesta</a></td>";
 			echo "<td><a href='table.php'>Katkesta</a></td>";
-			echo "<td><a href='?updateId'>Salvesta</a></td>";
 			echo "</tr>";
 			
 		}else{
