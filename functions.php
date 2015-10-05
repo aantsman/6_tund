@@ -58,7 +58,7 @@
 		
 	}
 	
-	function dupdateCarData($car_id, $number_plate, $color){
+	function updateCarData($car_id, $number_plate, $color){
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
 		
 		
