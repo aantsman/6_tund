@@ -10,6 +10,13 @@
 		
 	}
 	
+	//kasutaja muudab andmeid
+	if(isset($_GET["update"])){
+		
+	}
+	
+	
+	
 	//kõik autod objektide kujul massiivis
 	$car_array=getAllData();
 ?>
@@ -35,12 +42,14 @@
 		//kasutaja tahab rida muuta
 		if(isset($_GET["edit"]) && $_GET["edit"]==$car_array[$i]->id){
 			echo "<tr>";
+			echo "<form action='table.php' method='get'>";
 			echo "<td>".$car_array[$i]->id."</td>";
 			echo "<td>".$car_array[$i]->user_id."</td>";
 			echo "<td><input name='number_plate' value=".$car_array[$i]->number_plate."></td>";
 			echo "<td><input name='color' value=".$car_array[$i]->color."></td>";
-			echo "<td><a href='?update=".$car_array[$i]->id."'>Salvesta</a></td>";
+			echo "<td><input name='update' type='submit'></td>";
 			echo "<td><a href='table.php'>Katkesta</a></td>";
+			echo "</form>";
 			echo "</tr>";
 			
 		}else{
